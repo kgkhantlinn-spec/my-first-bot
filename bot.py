@@ -2,10 +2,10 @@ import telebot
 import google.generativeai as genai
 
 # ၁။ Telegram Token
-TELEGRAM_TOKEN = '8123355944:AAGuD9T_hXoZq5T-O3K03P_NfP0U5J8m6x8'
+TELEGRAM_TOKEN = '8723355944:AAGiPXuNVdaWBKleTIkUSsSYgcOB4yuZFnI'
 
 # ၂။ Gemini API Key
-GEMINI_API_KEY = 'AIzaSyARprm7Eom2nGOBFiTBQGZRwm5fzftgUj0'
+GEMINI_API_KEY = 'AIzaSyCZAem5bj_ItU014WMfExUNLuZaazl4E-8'
 
 # Gemini Setup
 genai.configure(api_key=GEMINI_API_KEY)
