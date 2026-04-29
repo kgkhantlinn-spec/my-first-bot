@@ -1,21 +1,18 @@
 import telebot
 import google.generativeai as genai
+import os
 
-# ၁။ ကိုကောင်း အခုပေးတဲ့ Token အသစ် (အစက်လေးတွေ၊ စာလုံးလေးတွေ သေချာစစ်ပြီး ထည့်ထားပါတယ်)
-TELEGRAM_TOKEN = '8723355944:AAGiPXuNVdaWBKleTIkUSsSYgcOB4yuZFnI'
+# Render Environment ထဲကနေ Token တွေကို လုံခြုံစွာ ဆွဲယူမယ်
+TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
+GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 
-# ၂။ ကိုကောင်းရဲ့ Gemini API Key အသစ်
-GEMINI_API_KEY = 'AIzaSyCZAem5bj_ItU014WMfExUNLuZaazl4E-8'
-
-# Gemini Setup
 genai.configure(api_key=GEMINI_API_KEY)
 model = genai.GenerativeModel('gemini-1.5-flash')
-
 bot = telebot.TeleBot(TELEGRAM_TOKEN)
 
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
-    bot.reply_to(message, "ဟလို ကိုကောင်း! အခုတော့ လုံးဝ အဆင်ပြေသွားပါပြီ။ ကျွန်တော် Alpha Gemini အသင့်ရှိနေပါပြီဗျ!")
+    bot.reply_to(message, "ဟလို ကိုကောင်း! အခု ကျွန်တော် လုံးဝ အဆင်သင့် ဖြစ်သွားပါပြီဗျ။")
 
 @bot.message_handler(func=lambda message: True)
 def chat_with_gemini(message):
